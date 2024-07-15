@@ -3,30 +3,31 @@ layout: default
 title: "BEAMinject by wavEye"
 ---
 
-## :wrench: Versions
-BEAMinject comes in 2 versions:
-- **BEAMinject:** Used for silently launching Minecraft then exiting
-    - Recommended for most users
-- **BEAMinject_GUI:** GUI version, mostly used for debugging etc.
-    - Includes toggles for launching Minecraft, displays injection logs
+## :zap: Features
+- Written in memory-safe Rust, using [`libdopamine`](https://github.com/wavEye-Project/libdopamine)
+- Supports x86, x64, ARM64 and even ARM
+- Silent mode for no logging while injecting
+- Supports Minecraft Preview releases
+- Patching is done in memory, not modifying any system files
+- Doesn't affect any other apps, safely injects to Minecraft
 
-We recommend trying BEAMinject first, and if you have issues, you can move to the GUI version for debugging.
+## :wrench: Usage
+Running BEAMinject as-is will patch Minecraft's release with logging by default.
 
-## :rotating_light: About AV detections
-Some poorly designed AVs *(namely Microsoft, Avast and AVG)* might detect our packed Python executables as a trojan.
+It has the following features:
+- Silent mode
+- Minecraft Preview support
+- and more to come...
 
-There is [**nothing we can do about this**](https://github.com/pyinstaller/pyinstaller/issues/6754#issuecomment-1100821249) except sign the binaries, which is [***really* expensive**](https://codesigncert.com/blog/code-signing-certificate-cost).
+Pass the **`-h`/`--help`** flag to BEAMinject in a command line for more info.
 
-Since the code is open and all builds are distributed via GitHub Actions, you can confirm that the executable is safe and whitelist it in your AV software!
+## :warning: Common issues
+**"It says it patched it, but it still doesn't work!" >** Give Minecraft ~10s to notice the patched library. Entering and quitting a world works too.
+
+If you have other issues, please create an issue.
 
 ## :test_tube: ARM support
-Read support status [here](https://github.com/wavEye-Project/BEAMinject/blob/main/ARMstatus.md).
-
-## :computer: Support
-This only works on Windows,
-and won't be ported to other platforms *(for obvious reasons)*.
-
-For all support needed, you can open an issue.
+The patcher supports ARM from the source. The emulation layer does not affect patching, and ARM versions of the game are still supported.
 
 ## :page_with_curl: License
-All code and assets are licensed under GNU AGPLv3.
+All code and assets are licensed under MPLv2.
